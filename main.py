@@ -3,7 +3,7 @@ import os
 import random
 import datetime
 from discord.ext import tasks
-from keep_alive import keep_alive
+# from keep_alive import keep_alive
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -39,6 +39,14 @@ async def on_message(message):
         await message.delete()
         await message.channel.send(get_random_phrase(get_random_deployer()))
 
+    if message.content == ('$check-day'):
+        today_date = datetime.date.today().strftime('%A')
+        await message.delete()
+        await message.channel.send(today_date)
+
+    if message.content == ('$ping'):
+        await message.delete()
+
     if message.content == ('$start_random_deploys'):
         await message.delete()
         await message.channel.send("Deploy Picker empezará a elegir a un deployer cada Martes y Jueves")
@@ -53,13 +61,13 @@ async def on_message(message):
 @tasks.loop(hours=24)
 async def check_deploy_day():
     today_date = datetime.date.today().strftime('%A')
-    if ( today_date == "Tuesday" or today_date == "Thursday"):
+    if (today_date == "Tuesday" or today_date == "Thursday"):
         await client.get_channel(int(os.environ['CHANNEL_ID'])).send(
             get_random_phrase(get_random_deployer()))
 
 
 bot_token = os.environ['BOT_TOKEN']
 
-keep_alive()
+# keep_alive()
 
 client.run(bot_token)
