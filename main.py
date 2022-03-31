@@ -3,7 +3,7 @@ import os
 import random
 import datetime
 from discord.ext import tasks
-# from keep_alive import keep_alive
+from keep_alive import keep_alive
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -72,6 +72,6 @@ async def check_deploy_day():
 
 bot_token = os.environ['BOT_TOKEN']
 
-# keep_alive()
+keep_alive()
 
 client.run(bot_token)
