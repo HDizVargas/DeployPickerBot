@@ -21,8 +21,6 @@ def get_random_phrase(deployer):
         '{} calienta que deployeas!',
         'Te ha tocado {}, mala suerte, a deployear.',
         'Adivinad a quien le toca fastidiar PRO, exacto a {}.'
-        'Te ha tocado {}, mala suerte, a deployear.',
-        'Adivinad a quién le toca fastidiar PRO, exacto a {}.'
     ]
     return random.choice(phrases).format(deployer)
 
@@ -30,6 +28,7 @@ def get_random_phrase(deployer):
 @client.event
 async def on_ready():
     print('You  have logged in as {0.user}'.format(client))
+
 
 @client.event
 async def on_message(message):
