@@ -30,34 +30,30 @@ async def on_ready():
     print('You  have logged in as {0.user}'.format(client))
 
 
-@client.event
 async def on_message(message):
     if message.author == client.user:
-        if message.content == ('$deploy'):
-            await message.delete()
-            await message.channel.send(get_random_phrase(get_random_deployer()))
+        return
+    if message.content == ('$deploy'):
+        await message.delete()
+        await message.channel.send(get_random_phrase(get_random_deployer()))
 
-        elif message.content == ('$check-day'):
-            today_date = datetime.date.today().strftime('%A')
-            await message.delete()
-            await message.channel.send(today_date)
+    elif message.content == ('$check-day'):
+        today_date = datetime.date.today().strftime('%A')
+        await message.delete()
+        await message.channel.send(today_date)
 
-        elif message.content == ('$ping'):
-            await message.delete()
+    elif message.content == ('$ping'):
+        await message.delete()
 
-        elif message.content == ('$start_random_deploys'):
-            await message.delete()
-            await message.channel.send(
-                'Deploy Picker empezará a elegir a un deployer cada Martes y Jueves'
-                )
-            check_deploy_day.start()
+    elif message.content == ('$start_random_deploys'):
+        await message.delete()
+        await message.channel.send("Deploy Picker empezará a elegir a un deployer cada Martes y Jueves")
+        check_deploy_day.start()
 
-        elif message.content == ('$stop_random_deploys'):
-            await message.delete()
-            await message.channel.send(
-                'Deploy Picker parará de elegir a un deployer cada Martes y Jueves'
-                )
-            check_deploy_day.stop()
+    elif message.content == ('$stop_random_deploys'):
+        await message.delete()
+        await message.channel.send("Deploy Picker parará de elegir a un deployer cada Martes y Jueves")
+        check_deploy_day.stop()
 
 
 @tasks.loop(hours=24)
