@@ -12,7 +12,7 @@ client = discord.Client()
 
 
 def get_random_deployer():
-    deployers = ['Jordi', 'Jesús', 'Huber', 'Toni', 'Mateo', 'Didac', 'Enrique']
+    deployers = ['Jordi B.', 'Jesús', 'Huber', 'Toni', 'Mateo', 'Didac', 'Enrique', 'Jordi H.']
     return random.choice(deployers)
 
 
