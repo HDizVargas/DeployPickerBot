@@ -12,13 +12,15 @@ client = discord.Client()
 
 
 def get_random_deployer():
-    deployers = ['Jordi B.', 'Jesús', 'Huber', 'Toni', 'Mateo', 'Didac', 'Enrique', 'Jordi H.']
+    deployers = ["Jordi", "Jesús", "Huber", "Toni", "Mateo", "Didac"]
     return random.choice(deployers)
 
 
 def get_random_phrase(deployer):
     phrases = [
         '{} calienta que deployeas!',
+        'Te ha tocado {}, mala suerte, a deployear.',
+        'Adivinad a quien le toca fastidiar PRO, exacto a {}.'
         'Te ha tocado {}, mala suerte, a deployear.',
         'Adivinad a quién le toca fastidiar PRO, exacto a {}.'
     ]
