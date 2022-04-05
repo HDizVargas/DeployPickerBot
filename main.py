@@ -12,7 +12,7 @@ client = discord.Client()
 
 
 def get_random_deployer():
-    deployers = ["Jordi", "Jesús", "Huber", "Toni", "Mateo", "Didac"]
+    deployers = ["Jordi B.", "Jesús", "Huber", "Toni", "Mateo", "Didac", "Enrique", "Jordi H."]
     return random.choice(deployers)
 
 
@@ -48,12 +48,16 @@ async def on_message(message):
 
     elif message.content == ('$start_random_deploys'):
         await message.delete()
-        await message.channel.send("Deploy Picker empezará a elegir a un deployer cada Martes y Jueves")
+        await message.channel.send(
+            "Deploy Picker empezará a elegir a un deployer cada Martes y Jueves"
+            )
         check_deploy_day.start()
 
     elif message.content == ('$stop_random_deploys'):
         await message.delete()
-        await message.channel.send("Deploy Picker parará de elegir a un deployer cada Martes y Jueves")
+        await message.channel.send(
+            "Deploy Picker parará de elegir a un deployer cada Martes y Jueves"
+            )
         check_deploy_day.stop()
 
 
