@@ -31,7 +31,7 @@ def get_random_phrase(deployer):
 async def on_ready():
     print('You  have logged in as {0.user}'.format(client))
 
-
+@client.event
 async def on_message(message):
     if message.author == client.user:
         return
